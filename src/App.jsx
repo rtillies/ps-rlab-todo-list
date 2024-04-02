@@ -2,7 +2,14 @@ import React, { useState, useReducer } from 'react'
 import './App.css'
 
 function reducer(state, action) {
-  return {count: state.count + 1}
+  switch (action.type) {
+    case 'increment':
+      return {count: state.count + 1}
+    case 'decrement':
+      return {count: state.count - 1}
+    default:
+      return state
+  }
 }
 
 export default function App() {
@@ -11,10 +18,11 @@ export default function App() {
 
   function increment() {
     // setCount(prevCount => prevCount + 1)
-    dispatch()
+    dispatch({ type: 'increment'})
   }
   function decrement() {
     // setCount(prevCount => prevCount - 1)
+    dispatch({ type: 'decrement'})
   }
 
   return (
