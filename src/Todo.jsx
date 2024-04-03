@@ -4,7 +4,15 @@ import { ACTIONS } from "./App";
 export default function Todo({ todo, dispatch }) {
   return (
     <div>
-      <input type="checkbox"></input>
+      <input type="checkbox" 
+        defaultChecked={todo.complete} 
+        onClick={() =>
+          dispatch({
+            type: ACTIONS.TOGGLE_TODO,
+            payload: { id: todo.id },
+          })
+        }
+      ></input>
       <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
         {todo.name}
       </span>
