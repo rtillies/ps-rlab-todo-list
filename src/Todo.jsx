@@ -4,6 +4,7 @@ import { ACTIONS } from "./App";
 export default function Todo({ todo, dispatch }) {
   return (
     <div>
+      <input type="checkbox"></input>
       <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
         {todo.name}
       </span>
