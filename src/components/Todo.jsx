@@ -1,5 +1,5 @@
 import React from "react";
-import { ACTIONS } from "./App";
+import { ACTIONS } from "../App";
 
 export default function Todo({ todo, dispatch }) {
   return (
