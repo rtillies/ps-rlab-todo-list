@@ -1,5 +1,6 @@
 import React, { useState, useReducer } from "react";
-import Todo from "./Todo";
+// import Todo from "./Todo";
+import Todo from "./components/Todo";
 import "./App.css";
 
 export const ACTIONS = {
