@@ -27,6 +27,7 @@ export default function Todo({ todo, dispatch }) {
         Toggle
       </button>
       <button
+        disabled={!todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.DELETE_TODO,
