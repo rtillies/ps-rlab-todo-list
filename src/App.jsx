@@ -6,6 +6,7 @@ export const ACTIONS = {
   ADD_TODO: "add-todo",
   TOGGLE_TODO: "toggle-todo",
   DELETE_TODO: "delete-todo",
+  EDIT_TODO: "edit-todo",
 };
 
 function reducer(todos, action) {
@@ -23,6 +24,8 @@ function reducer(todos, action) {
       return todos.filter(todo => 
         todo.id !== action.payload.id
       )
+    case ACTIONS.EDIT_TODO:
+      // add edit functionality
     default:
       return todos;
   }
