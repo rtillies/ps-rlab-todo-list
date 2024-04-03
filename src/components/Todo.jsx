@@ -16,7 +16,7 @@ export default function Todo({ todo, dispatch }) {
       <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
         {todo.name}
       </span>
-      <button
+      {/* <button
         onClick={() =>
           dispatch({
             type: ACTIONS.TOGGLE_TODO,
@@ -25,7 +25,7 @@ export default function Todo({ todo, dispatch }) {
         }
       >
         Toggle
-      </button>
+      </button> */}
       <button
         disabled={!todo.complete}
         onClick={() =>
