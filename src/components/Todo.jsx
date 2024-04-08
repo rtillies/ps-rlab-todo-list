@@ -1,7 +1,9 @@
-import React from "react";
+import React, { useState } from "react";
 import { ACTIONS } from "../App";
 
 export default function Todo({ todo, dispatch }) {
+  const [text, setText] = useState(todo.name)
+
   return (
     <div>
       <input
@@ -24,15 +26,15 @@ export default function Todo({ todo, dispatch }) {
         {todo.name}
       </span>
       <input
-        disabled={!todo.edit}
-        // hidden={todo.edit}
+        // disabled={!todo.edit}
+        hidden={!todo.edit}
         type="text"
         value={todo.name}
         // onChange={(e) => setName(e.target.value)}
       />
       <button
-        disabled={!todo.edit}
-        // hidden={todo.edit}
+        // disabled={!todo.edit}
+        hidden={!todo.edit}
         onClick={() =>
           dispatch({
             type: ACTIONS.SAVE_TODO,
@@ -43,8 +45,8 @@ export default function Todo({ todo, dispatch }) {
         Save
       </button>
       <button
-        disabled={todo.edit || todo.complete}
-        // hidden={todo.complete}
+        // disabled={todo.edit || todo.complete}
+        hidden={todo.edit || todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.EDIT_TODO,
@@ -55,8 +57,8 @@ export default function Todo({ todo, dispatch }) {
         Edit
       </button>
       <button
-        disabled={!todo.complete}
-        // hidden={!todo.complete}
+        // disabled={!todo.complete}
+        hidden={!todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.DELETE_TODO,
