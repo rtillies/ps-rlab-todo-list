@@ -16,20 +16,30 @@ function reducer(todos, action) {
     case ACTIONS.ADD_TODO:
       return [newTodo(action.payload.name), ...todos];
     case ACTIONS.TOGGLE_TODO:
-      return todos.map(todo => {
+      return todos.map((todo) => {
         if (todo.id === action.payload.id) {
-          return {...todo, complete: !todo.complete}
+          return { ...todo, complete: !todo.complete };
         }
-        return todo
-      })
+        return todo;
+      });
     case ACTIONS.DELETE_TODO:
-      return todos.filter(todo => 
-        todo.id !== action.payload.id
-      )
+      return todos.filter((todo) => todo.id !== action.payload.id);
     case ACTIONS.EDIT_TODO:
       // add edit functionality
+      return todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          return { ...todo, edit: !todo.edit };
+        }
+        return todo;
+      });
     case ACTIONS.SAVE_TODO:
-      // add save functionality
+    // add save functionality
+    // return todos.map(todo => {
+    //   if (todo.id === action.payload.id) {
+    //     return {...todo, name: action.payload.name, edit: !todo.edit}
+    //   }
+    //   return todo
+    // })
     default:
       return todos;
   }
@@ -41,15 +51,15 @@ function newTodo(name) {
 
 export default function App() {
   const [todos, dispatch] = useReducer(reducer, []);
-  const [name, setName] = useState('');
+  const [name, setName] = useState("");
 
   function handleSubmit(e) {
     e.preventDefault();
-    dispatch({ 
+    dispatch({
       type: ACTIONS.ADD_TODO,
-      payload: { name: name }
+      payload: { name: name },
     });
-    setName('');
+    setName("");
   }
 
   console.log(todos);
@@ -67,8 +77,8 @@ export default function App() {
         <button>Add</button>
       </form>
       <h3>Todo Items</h3>
-      {todos.map(todo => {
-        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />
+      {todos.map((todo) => {
+        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
     </>
   );

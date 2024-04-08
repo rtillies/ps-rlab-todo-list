@@ -6,6 +6,7 @@ export default function Todo({ todo, dispatch }) {
     <div>
       <input
         type="checkbox"
+        disabled={todo.edit}
         defaultChecked={todo.complete}
         onClick={() =>
           dispatch({
@@ -24,14 +25,14 @@ export default function Todo({ todo, dispatch }) {
       </span>
       <input
         disabled={!todo.edit}
-        hidden={todo.edit}
+        // hidden={todo.edit}
         type="text"
         value={todo.name}
-        onChange={(e) => setName(e.target.value)}
+        // onChange={(e) => setName(e.target.value)}
       />
       <button
         disabled={!todo.edit}
-        hidden={todo.edit}
+        // hidden={todo.edit}
         onClick={() =>
           dispatch({
             type: ACTIONS.SAVE_TODO,
@@ -42,8 +43,8 @@ export default function Todo({ todo, dispatch }) {
         Save
       </button>
       <button
-        disabled={todo.complete}
-        hidden={todo.complete}
+        disabled={todo.edit || todo.complete}
+        // hidden={todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.EDIT_TODO,
@@ -55,7 +56,7 @@ export default function Todo({ todo, dispatch }) {
       </button>
       <button
         disabled={!todo.complete}
-        hidden={!todo.complete}
+        // hidden={!todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.DELETE_TODO,
