@@ -4,8 +4,9 @@ import { ACTIONS } from "../App";
 export default function Todo({ todo, dispatch }) {
   return (
     <div>
-      <input type="checkbox" 
-        defaultChecked={todo.complete} 
+      <input
+        type="checkbox"
+        defaultChecked={todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.TOGGLE_TODO,
@@ -27,7 +28,20 @@ export default function Todo({ todo, dispatch }) {
         Toggle
       </button> */}
       <button
+        disabled={todo.complete}
+        hidden={todo.complete}
+        onClick={() =>
+          dispatch({
+            type: ACTIONS.EDIT_TODO,
+            payload: { id: todo.id },
+          })
+        }
+      >
+        Edit
+      </button>
+      <button
         disabled={!todo.complete}
+        hidden={!todo.complete}
         onClick={() =>
           dispatch({
             type: ACTIONS.DELETE_TODO,
@@ -35,7 +49,8 @@ export default function Todo({ todo, dispatch }) {
           })
         }
       >
-        Delete</button>
+        Delete
+      </button>
     </div>
   );
 }
