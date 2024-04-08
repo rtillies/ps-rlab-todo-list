@@ -14,19 +14,33 @@ export default function Todo({ todo, dispatch }) {
           })
         }
       ></input>
-      <span style={{ color: todo.complete ? "#AAA" : "#000" }}>
+      <span
+        hidden={todo.edit}
+        style={{
+          color: todo.complete ? "#AAA" : "#000",
+        }}
+      >
         {todo.name}
       </span>
-      {/* <button
+      <input
+        disabled={!todo.edit}
+        hidden={todo.edit}
+        type="text"
+        value={todo.name}
+        onChange={(e) => setName(e.target.value)}
+      />
+      <button
+        disabled={!todo.edit}
+        hidden={todo.edit}
         onClick={() =>
           dispatch({
-            type: ACTIONS.TOGGLE_TODO,
+            type: ACTIONS.SAVE_TODO,
             payload: { id: todo.id },
           })
         }
       >
-        Toggle
-      </button> */}
+        Save
+      </button>
       <button
         disabled={todo.complete}
         hidden={todo.complete}

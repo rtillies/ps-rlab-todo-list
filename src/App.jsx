@@ -8,6 +8,7 @@ export const ACTIONS = {
   TOGGLE_TODO: "toggle-todo",
   DELETE_TODO: "delete-todo",
   EDIT_TODO: "edit-todo",
+  SAVE_TODO: "save-todo",
 };
 
 function reducer(todos, action) {
@@ -27,13 +28,15 @@ function reducer(todos, action) {
       )
     case ACTIONS.EDIT_TODO:
       // add edit functionality
+    case ACTIONS.SAVE_TODO:
+      // add save functionality
     default:
       return todos;
   }
 }
 
 function newTodo(name) {
-  return { id: Date.now(), name: name, complete: false };
+  return { id: Date.now(), name: name, complete: false, edit: false };
 }
 
 export default function App() {
