@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import { ACTIONS } from "../App";
 
 export default function Todo({ todo, dispatch }) {
-  const [text, setText] = useState(todo.name)
+  const [text, setText] = useState(todo.name);
+  const input = document.getElementById(todo.id)
 
   return (
     <div>
@@ -18,6 +19,7 @@ export default function Todo({ todo, dispatch }) {
         }
       ></input>
       <span
+        // id={todo.id}
         hidden={todo.edit}
         style={{
           color: todo.complete ? "#AAA" : "#000",
@@ -26,10 +28,12 @@ export default function Todo({ todo, dispatch }) {
         {todo.name}
       </span>
       <input
+        id={todo.id}
         // disabled={!todo.edit}
         hidden={!todo.edit}
         type="text"
-        value={todo.name}
+        defaultValue={todo.name}
+        onChange={(e) => setText(e.value)}
         // onChange={(e) => setName(e.target.value)}
       />
       <button
@@ -38,7 +42,7 @@ export default function Todo({ todo, dispatch }) {
         onClick={() =>
           dispatch({
             type: ACTIONS.SAVE_TODO,
-            payload: { id: todo.id },
+            payload: { id: todo.id, name: input.value },
           })
         }
       >

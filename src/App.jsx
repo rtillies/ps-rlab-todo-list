@@ -33,14 +33,16 @@ function reducer(todos, action) {
         return todo;
       });
     case ACTIONS.SAVE_TODO:
-    // add save functionality
-    return todos.map(todo => {
-      if (todo.id === action.payload.id) {
-        // return {...todo, name: action.payload.name, edit: !todo.edit}
-        return {...todo, edit: !todo.edit}
-      }
-      return todo
-    })
+      // add save functionality
+      return todos.map((todo) => {
+        if (todo.id === action.payload.id) {
+          // console.log("Pay name", action.payload.name);
+          // console.log("Payload", action.payload);
+          return { ...todo, name: action.payload.name, edit: !todo.edit };
+          // return {...todo, edit: !todo.edit}
+        }
+        return todo;
+      });
     default:
       return todos;
   }
