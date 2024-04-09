@@ -69,28 +69,28 @@ export default function App() {
 
   return (
     <>
-    <div className="row">
-      <div className="col-sm-6">
-      <form onSubmit={handleSubmit}>
-          <h1>Todo List</h1>
-          <h2>Create New Item</h2>
-          <input
-            type="text"
-            value={name}
-            placeholder="Todo List item"
-            onChange={(e) => setName(e.target.value)}
-          />
-          <button>Add</button>
-        </form>
-      </div>
+      <div className="row">
+        <div className="col-sm-6">
+          <form onSubmit={handleSubmit}>
+            <h1>Todo List</h1>
+            <h2>Create New Item</h2>
+            <input
+              type="text"
+              value={name}
+              placeholder="Todo List item"
+              onChange={(e) => setName(e.target.value)}
+            />
+            <button className="btn btn-primary">Add</button>
+          </form>
+        </div>
 
-      <div className="col-sm-6">
-        {/* <h3>Todo Items</h3> */}
-        {todos.map((todo) => {
-          return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
-        })}
+        <div className="col-sm-6">
+          {/* <h3>Todo Items</h3> */}
+          {todos.map((todo) => {
+            return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
+          })}
+        </div>
       </div>
-    </div>
     </>
   );
 }
