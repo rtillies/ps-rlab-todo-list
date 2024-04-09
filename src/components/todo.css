@@ -1,5 +1,6 @@
 .todo {
   border: 1px solid red;
+  margin: 0.5em 0;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
