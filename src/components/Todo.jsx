@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { ACTIONS } from "../App";
-import './todo.css'
+import "bootstrap/dist/css/bootstrap.css";
+import "./todo.css";
 
 export default function Todo({ todo, dispatch }) {
   const [text, setText] = useState(todo.name);
-  const input = document.getElementById(todo.id)
+  const input = document.getElementById(todo.id);
 
   return (
     <div className="todo">
@@ -39,6 +40,7 @@ export default function Todo({ todo, dispatch }) {
       />
       <button
         // disabled={!todo.edit}
+        className="btn btn-primary"
         hidden={!todo.edit}
         onClick={() =>
           dispatch({
@@ -51,6 +53,7 @@ export default function Todo({ todo, dispatch }) {
       </button>
       <button
         // disabled={todo.edit || todo.complete}
+        className="btn btn-success"
         hidden={todo.edit || todo.complete}
         onClick={() =>
           dispatch({
@@ -62,6 +65,7 @@ export default function Todo({ todo, dispatch }) {
         Edit
       </button>
       <button
+        className="btn btn-danger"
         // disabled={!todo.complete}
         hidden={!todo.complete}
         onClick={() =>

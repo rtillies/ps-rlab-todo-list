@@ -1,6 +1,6 @@
 import React, { useState, useReducer } from "react";
-// import Todo from "./Todo";
 import Todo from "./components/Todo";
+import "bootstrap/dist/css/bootstrap.css";
 import "./App.css";
 
 export const ACTIONS = {
@@ -69,21 +69,21 @@ export default function App() {
 
   return (
     <>
-    <div className="todo-list">
-      <form onSubmit={handleSubmit}>
-        <h1>Todo List</h1>
-        <h3>Create New Item</h3>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
+      <div className="col-md-4 col-sm-6">
+        <form onSubmit={handleSubmit}>
+          <h1>Todo List</h1>
+          <h3>Create New Item</h3>
+          <input
+            type="text"
+            value={name}
+            onChange={(e) => setName(e.target.value)}
           />
-        <button>Add</button>
-      </form>
-      <h3>Todo Items</h3>
-      {todos.map((todo) => {
-        return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
-      })}
+          <button>Add</button>
+        </form>
+        <h3>Todo Items</h3>
+        {todos.map((todo) => {
+          return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
+        })}
       </div>
     </>
   );
