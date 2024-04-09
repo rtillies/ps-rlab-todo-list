@@ -1,12 +1,13 @@
 import React, { useState } from "react";
 import { ACTIONS } from "../App";
+import './todo.css'
 
 export default function Todo({ todo, dispatch }) {
   const [text, setText] = useState(todo.name);
   const input = document.getElementById(todo.id)
 
   return (
-    <div>
+    <div className="todo">
       <input
         type="checkbox"
         disabled={todo.edit}

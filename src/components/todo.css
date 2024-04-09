@@ -1,0 +1,10 @@
+.todo {
+  border: 1px solid red;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.todo:hover {
+  background-color: #ddd;
+}
