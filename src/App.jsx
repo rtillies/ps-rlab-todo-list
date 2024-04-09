@@ -69,6 +69,7 @@ export default function App() {
 
   return (
     <>
+    <div className="todo-list">
       <form onSubmit={handleSubmit}>
         <h1>Todo List</h1>
         <h3>Create New Item</h3>
@@ -76,13 +77,14 @@ export default function App() {
           type="text"
           value={name}
           onChange={(e) => setName(e.target.value)}
-        />
+          />
         <button>Add</button>
       </form>
       <h3>Todo Items</h3>
       {todos.map((todo) => {
         return <Todo key={todo.id} todo={todo} dispatch={dispatch} />;
       })}
+      </div>
     </>
   );
 }
