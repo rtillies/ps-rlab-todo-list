@@ -4,6 +4,8 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
+  width: 80%;
+  /* margin: auto; */
 }
 
 .todo:hover {
